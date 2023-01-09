@@ -36,8 +36,11 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-playRound(getPlayerChoice(), getComputerChoice());
-playRound(getPlayerChoice(), getComputerChoice());
-playRound(getPlayerChoice(), getComputerChoice());
-playRound(getPlayerChoice(), getComputerChoice());
-playRound(getPlayerChoice(), getComputerChoice());
+function game() {
+  for (let i = 1; i <= 5; i++) {
+    console.log(`Game: ${i}`);
+    playRound(getPlayerChoice(), getComputerChoice());
+  }
+}
+
+game();
