@@ -45,12 +45,12 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function playGame() {
+function playGame(e) {
   let playerCounter = 0;
   let computerCounter = 0;
   for (let i = 1; i <= 5; i++) {
     console.log(`Game: ${i}`);
-    if (playRound(getPlayerChoice(), getComputerChoice()) === "PLAYER WINS") {
+    if (playRound(getPlayerChoice(e), getComputerChoice()) === "PLAYER WINS") {
       playerCounter++;
     } else {
       computerCounter++;
@@ -78,7 +78,7 @@ function showOutcome() {
 
 const button = document.getElementById("rock-button");
 button.addEventListener("click", (e) => {
-  getPlayerChoice(e);
+  playGame(e);
 });
 
 const paperbutton = document.getElementById("paper-button");
