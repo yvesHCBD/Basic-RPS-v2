@@ -24,3 +24,7 @@ h1 {
 .btn {
   flex: 1;
 }
+
+#outcome {
+  font-size: 68px;
+}
