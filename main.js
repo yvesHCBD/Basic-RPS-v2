@@ -62,4 +62,21 @@ function playGame() {
   }
 }
 
-playGame();
+const button = document.getElementById("rock-button");
+button.addEventListener("click", () => {
+  const container = document.querySelector("#body-container");
+  const div_content = document.createElement("div");
+  div_content.classList.add("div_content");
+  div_content.textContent = "Outcome: ";
+  container.appendChild(div_content);
+});
+
+const paperbutton = document.getElementById("paper-button");
+paperbutton.addEventListener("click", () => {
+  return "Paper";
+});
+
+const scissorsbutton = document.getElementById("scissors-button");
+scissorsbutton.addEventListener("click", () => {
+  return "Scissors";
+});
