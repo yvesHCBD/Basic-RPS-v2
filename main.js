@@ -3,11 +3,11 @@ console.log("Hello World");
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3);
   if (computerChoice === 0) {
-    return "ROCK";
+    return "Rock";
   } else if (computerChoice === 1) {
-    return "PAPER";
+    return "Paper";
   } else {
-    return "SCISSORS";
+    return "Scissors";
   }
 }
 
@@ -21,49 +21,22 @@ function getPlayerChoice(e) {
   return e.target.textContent;
 }
 
-function playRound(playerSelection, computerSelection) {
+function truePlayGame(e) {
+  let computerSelection = getComputerChoice();
   if (
-    (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
-    (playerSelection === "PAPER" && computerSelection === "ROCK") ||
-    (playerSelection === "SCISSORS" && computerSelection === "PAPER")
+    (e.target.textContent === "Rock" && computerSelection === "Scissors") ||
+    (e.target.textContent === "Paper" && computerSelection === "Rock") ||
+    (e.target.textContent === "Scissors" && computerSelection === "Paper")
   ) {
-    // console.log(`PLAYER WINS! ${playerSelection} beats ${computerSelection}`);
-    return "PLAYER WINS";
+    console.log(`${e.target.textContent} BEATS ${computerSelection}`);
+    console.log("PLAYER WINS!");
   } else if (
-    (computerSelection === "ROCK" && playerSelection === "SCISSORS") ||
-    (computerSelection === "PAPER" && playerSelection === "ROCK") ||
-    (computerSelection === "SCISSORS" && playerSelection === "PAPER")
+    (computerSelection === "Rock" && e.target.textContent === "Scissors") ||
+    (computerSelection === "Paper" && e.target.textContent === "Rock") ||
+    (computerSelection === "Scissors" && e.target.textContent === "Paper")
   ) {
-    // console.log(`COMPUTER WINS! ${computerSelection} beats ${playerSelection}`);
-    return "COMPUTER WINS";
-  } else if (playerSelection === computerSelection) {
-    // console.log("IT'S A TIE!");
-    return "TIE";
-    // } else {
-    //   // console.log("ERROR: INVALID CHOICE, CHOOSE ROCK, PAPER, OR SCISSORS");
-    // }
-  }
-}
-
-function playGame(e) {
-  let playerCounter = 0;
-  let computerCounter = 0;
-  for (let i = 1; i <= 5; i++) {
-    console.log(`Game: ${i}`);
-    if (playRound(getPlayerChoice(e), getComputerChoice()) === "PLAYER WINS") {
-      playerCounter++;
-    } else {
-      computerCounter++;
-    }
-  }
-  if (playerCounter > computerCounter) {
-    console.log(
-      `PLAYER WON ${playerCounter} ROUNDS VS. COMPUTER'S ${computerCounter}`
-    );
-  } else {
-    console.log(
-      `COMPUTER WON ${computerCounter} ROUNDS VS. PLAYER'S ${playerCounter}`
-    );
+    console.log(`${computerSelection} BEATS ${e.target.textContent}`);
+    console.log("COMPUTER WINS");
   }
 }
 
@@ -76,17 +49,17 @@ function showOutcome() {
   document.getElementById("outcome").innerHTML = "Outcome: ";
 }
 
-const button = document.getElementById("rock-button");
-button.addEventListener("click", (e) => {
-  playGame(e);
+const rockbutton = document.getElementById("rock-button");
+rockbutton.addEventListener("click", (e) => {
+  truePlayGame(e);
 });
 
 const paperbutton = document.getElementById("paper-button");
 paperbutton.addEventListener("click", (e) => {
-  getPlayerChoice(e);
+  truePlayGame(e);
 });
 
 const scissorsbutton = document.getElementById("scissors-button");
 scissorsbutton.addEventListener("click", (e) => {
-  getPlayerChoice(e);
+  truePlayGame(e);
 });
