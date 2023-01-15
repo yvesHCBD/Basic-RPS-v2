@@ -6,7 +6,7 @@ function getComputerChoice() {
     return "Rock";
   } else if (computerChoice === 1) {
     return "Paper";
-  } else {
+  } else if (computerChoice === 2) {
     return "Scissors";
   }
 }
@@ -28,41 +28,47 @@ function truePlayGame(e) {
     (e.target.textContent === "Paper" && computerSelection === "Rock") ||
     (e.target.textContent === "Scissors" && computerSelection === "Paper")
   ) {
-    console.log(`${e.target.textContent} BEATS ${computerSelection}`);
-    console.log("PLAYER WINS!");
+    return `${e.target.textContent} BEATS ${computerSelection}`;
+    // console.log(`${e.target.textContent} BEATS ${computerSelection}`);
+    // console.log("PLAYER WINS!");
+    // console.log("PLAYER WINS!");
   } else if (
     (computerSelection === "Rock" && e.target.textContent === "Scissors") ||
     (computerSelection === "Paper" && e.target.textContent === "Rock") ||
     (computerSelection === "Scissors" && e.target.textContent === "Paper")
   ) {
-    console.log(`${computerSelection} BEATS ${e.target.textContent}`);
-    console.log("COMPUTER WINS");
+    return `${computerSelection} BEATS ${e.target.textContent}`;
+    // console.log(`${computerSelection} BEATS ${e.target.textContent}`);
+    // console.log("COMPUTER WINS");
+    // console.log("COMPUTER WINS");
+  } else {
+    return `IT'S A TIE!`;
   }
 }
 
 const container = document.querySelector("#body-container");
 const div_content = document.createElement("div");
-function showOutcome() {
+function showOutcome(e) {
   div_content.classList.add("div_content");
   // div_content.textContent = "Outcome: ";
   container.appendChild(div_content);
-  document.getElementById("outcome").innerHTML = Math.floor(Math.random() * 3);
+  document.getElementById("outcome").innerHTML = truePlayGame(e);
 }
 
 const rockbutton = document.getElementById("rock-button");
 rockbutton.addEventListener("click", (e) => {
-  truePlayGame(e);
-  showOutcome();
+  // truePlayGame(e);
+  showOutcome(e);
 });
 
 const paperbutton = document.getElementById("paper-button");
 paperbutton.addEventListener("click", (e) => {
-  truePlayGame(e);
-  showOutcome();
+  // truePlayGame(e);
+  showOutcome(e);
 });
 
 const scissorsbutton = document.getElementById("scissors-button");
 scissorsbutton.addEventListener("click", (e) => {
-  truePlayGame(e);
-  showOutcome();
+  // truePlayGame(e);
+  showOutcome(e);
 });
