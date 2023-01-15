@@ -40,26 +40,29 @@ function truePlayGame(e) {
   }
 }
 
+const container = document.querySelector("#body-container");
+const div_content = document.createElement("div");
 function showOutcome() {
-  // const container = document.querySelector("#body-container");
-  // const div_content = document.createElement("div");
-  // div_content.classList.add("div_content");
+  div_content.classList.add("div_content");
   // div_content.textContent = "Outcome: ";
-  // container.appendChild(div_content);
-  document.getElementById("outcome").innerHTML = "Outcome: ";
+  container.appendChild(div_content);
+  document.getElementById("outcome").innerHTML = Math.floor(Math.random() * 3);
 }
 
 const rockbutton = document.getElementById("rock-button");
 rockbutton.addEventListener("click", (e) => {
   truePlayGame(e);
+  showOutcome();
 });
 
 const paperbutton = document.getElementById("paper-button");
 paperbutton.addEventListener("click", (e) => {
   truePlayGame(e);
+  showOutcome();
 });
 
 const scissorsbutton = document.getElementById("scissors-button");
 scissorsbutton.addEventListener("click", (e) => {
   truePlayGame(e);
+  showOutcome();
 });
