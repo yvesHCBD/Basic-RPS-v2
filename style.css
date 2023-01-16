@@ -14,7 +14,7 @@ h1 {
   padding-top: 120px;
 }
 
-.btn-container {
+#btn-container {
   display: flex;
   width: 25%;
   margin: 80px;
